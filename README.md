@@ -43,6 +43,22 @@ Below is the **why** behind each action, what I looked for, what I fixed, and th
 * **Why:** Clear names reduce downstream errors and make reports more understandable.
 * **Decision:** Use Title Case with spaces for human readability (e.g., Math Score). (Accepted trade-off: column names with spaces require bracketed access in code; I prefer readability for stakeholders.)
 
+## 4.	Name standardization (lower → Title Case)
+
+* **Why:** Prevents “John Doe” vs “john doe” mismatch in grouping and deduplication.
+* **Decision:** Title case is a neutral, readable standard.
+
+## 5.	Age cleaning (inspect unique → fillna with rounded mean)
+* **Why:** Age is numeric and often missing.
+* **Decision:** Use rounded mean to maintain distribution.
+* **Trade-off:** Median is more robust to outliers; mean is fine here given the small, fairly normal distribution.
+
+## 6.	Gender standardization (lower → Title Case)
+* **Why:** Avoids “male/Male/MALE” variants.
+* **Decision:** Normalize to a readable canonical form. 
+
+  
+
 
 
 
