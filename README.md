@@ -57,6 +57,40 @@ Below is the **why** behind each action, what I looked for, what I fixed, and th
 * **Why:** Avoids “male/Male/MALE” variants.
 * **Decision:** Normalize to a readable canonical form. 
 
+## 7.	Grade normalization (map “10th”→10, “11th”→11 → cast to int)
+* **Why:** Mixed formats break sorting and numeric operations.
+* **Decision:** Map string grades to integers and enforce dtype.
+
+## 8.	Score cleaning
+* **Math Score:** fill missing with mean.
+* **English Score:** coerce to numeric (errors='coerce') then handle any resulting NaNs.
+* **Why:** Scores should be numeric; strings like "85 " or "N/A" must be fixed.
+* **Decision:** Use coercion to systematically identify non-numeric values. Fill missing in a consistent way (mean)
+
+## 9.	Date normalization (replace mixed formats → to_datetime)
+* **Why:** Mixed formats ('10-06-2022', '06/12/2022', '2022/06/11') block time analysis.
+* **Decision:** Standardize to ISO (YYYY-MM-DD) and parse to datetime with errors='coerce' to surface invalid rows as NaT for explicit handling.
+
+## 10.	Remarks standardization (lower → Title Case)
+* **Why:** Consistent labels for grouping (“Good”, “Excellent”).
+* **Decision:** Title case for presentation; if using as category features, consider a curated mapping.
+
+## 11.	Final Audit (info)
+* **Why:** Validate dtypes, null counts, memory usage.
+* **Decision:** Assert no remaining nulls in required fields; log any intentional coercions.
+
+
+![Image](https://github.com/user-attachments/assets/926aec17-f155-412b-a29e-207f55c56901)
+
+For any collaborative work or gigs, reach out to me at:
+
+📧 Email: oladejoidris55@gmail.com 📞 Phone: 07025062857
+
+
+
+
+
+
   
 
 
